@@ -2,7 +2,7 @@
  * @Author: xuwenjie
  * @Date: 2021-01-13 16:46:45
  * @LastEditors: xuwenjie
- * @LastEditTime: 2021-01-13 18:07:16
+ * @LastEditTime: 2021-01-13 18:11:03
  * @Description:  
  * @FilePath: /formate-custom/README.md
 -->
@@ -29,11 +29,11 @@ On Mac:
 ## Extension Settings
 | Setting                           | Description                                         | Type    | Default  |
 |:--------------------------------- |:----------------------------------------------------|:-------:|:--------:|
-| formate.enable                    | Enables/disables the extension                      | boolean | true     |
-| formate.verticalAlignProperties   | Controls if properties should be aligned vertically | boolean | true     |
-| formate.additionalSpaces          | If vertical alignment is on, this setting is to add extra spaces | boolean | 0     |
-| formate.includeRootFolders                | Specify which folders need formate. | array | []    |
-| formate.withGroup                | Group with line-warp. | boolean | false    |
+| formateCustom.enable                    | Enables/disables the extension                      | boolean | true     |
+| formateCustom.verticalAlignProperties   | Controls if properties should be aligned vertically | boolean | true     |
+| formateCustom.additionalSpaces          | If vertical alignment is on, this setting is to add extra spaces | boolean | 0     |
+| formateCustom.includeRootFolders                | Specify which folders need formate. | array | []    |
+| formateCustom.withGroup                | Group with line-warp. | boolean | false    |
 
 
 
@@ -41,6 +41,7 @@ On Mac:
 
 | Version | Notes |
 |:--------|:------|
+| 1.0.3   | update README.
 | 1.0.2   | update configuration field.
 | 1.0.1   | init
 
