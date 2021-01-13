@@ -6,6 +6,7 @@ import jsbeautify = require('js-beautify');
 export function format(document: vscode.TextDocument, range: vscode.Range | null, defaultOptions: vscode.FormattingOptions) {
     const settings = vscode.workspace.getConfiguration('formate');
     const enable = settings.get('enable', true);
+    const withGroup = settings.get('withGroup', false);
     const currentRootName = vscode.workspace.name;
     const includeRootFolders = settings.get('includeRootFolders', [currentRootName]);
 
@@ -39,7 +40,7 @@ export function format(document: vscode.TextDocument, range: vscode.Range | null
 
     if (verticalAlignProperties && includeRootFolders.includes(currentRootName)) {
         const additionalSpaces = settings.get('additionalSpaces', 0);
-        formatted = verticalAlign(formatted, additionalSpaces, alignColon);
+        formatted = verticalAlign(formatted, additionalSpaces, alignColon, withGroup);
     }
 
     if (formatted) {
@@ -96,7 +97,7 @@ export function isProperty(line: string): boolean {
  * @param {string} css
  * @returns {string}
  */
-export function verticalAlign(css: string, additionalSpaces: number = 0, alignColon: boolean): string {
+export function verticalAlign(css: string, additionalSpaces: number = 0, alignColon: boolean, withGroup: boolean): string {
     const cssLines = css.split('\n');
     let firstProperty: number = -1;
     let lastProperty: number = -1;
@@ -122,8 +123,12 @@ export function verticalAlign(css: string, additionalSpaces: number = 0, alignCo
         if (isProperty(line) && firstProperty === -1) {
             firstProperty = lineNumberIndex;
         }
+
+        // whether include '' or not
+        const valid = withGroup ? !isProperty(line) && firstProperty >= 0 : !isProperty(line) && firstProperty >= 0 && line !== '';
+
         // Last property group line.
-        if ((!isProperty(line) && firstProperty >= 0 && line !== '') || cssLines.length - 1 === lineNumberIndex) {
+        if (valid || cssLines.length - 1 === lineNumberIndex) {
             lastProperty = lineNumberIndex;
         }
 

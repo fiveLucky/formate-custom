@@ -80,6 +80,12 @@
                     "type": "array",
                     "default": [],
                     "description": "Specify which folders need formate."
+                },
+                "formate.withGroup": {
+                    "scope": "resource",
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Group with line-warp."
                 }
             }
         }
