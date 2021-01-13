@@ -6,6 +6,8 @@ import jsbeautify = require('js-beautify');
 export function format(document: vscode.TextDocument, range: vscode.Range | null, defaultOptions: vscode.FormattingOptions) {
     const settings = vscode.workspace.getConfiguration('formate');
     const enable = settings.get('enable', true);
+    const currentRootName = vscode.workspace.name;
+    const includeRootFolders = settings.get('includeRootFolders', [currentRootName]);
 
     if (!enable) return;
 
@@ -35,7 +37,7 @@ export function format(document: vscode.TextDocument, range: vscode.Range | null
 
     let formatted = jsbeautify.css_beautify(content, beautifyOptions);
 
-    if (verticalAlignProperties) {
+    if (verticalAlignProperties && includeRootFolders.includes(currentRootName)) {
         const additionalSpaces = settings.get('additionalSpaces', 0);
         formatted = verticalAlign(formatted, additionalSpaces, alignColon);
     }
@@ -121,7 +123,7 @@ export function verticalAlign(css: string, additionalSpaces: number = 0, alignCo
             firstProperty = lineNumberIndex;
         }
         // Last property group line.
-        if ((!isProperty(line) && firstProperty >= 0) || cssLines.length - 1 === lineNumberIndex) {
+        if ((!isProperty(line) && firstProperty >= 0 && line !== '') || cssLines.length - 1 === lineNumberIndex) {
             lastProperty = lineNumberIndex;
         }
 
@@ -132,11 +134,12 @@ export function verticalAlign(css: string, additionalSpaces: number = 0, alignCo
 
             // Format the group
             while (firstProperty <= lastProperty) {
-                const colonIndex = cssLines[firstProperty].indexOf(':');
+                const currentLine = cssLines[firstProperty];
+                const colonIndex = currentLine.indexOf(':');
 
-                if (colonIndex < furthestColon && !isCommentLine(cssLines[firstProperty])) {
+                if (colonIndex < furthestColon && !isCommentLine(currentLine) && isProperty(currentLine)) {
                     let diff = furthestColon - colonIndex;
-                    cssLines[firstProperty] = insertExtraSpaces(cssLines[firstProperty], diff, alignColon);
+                    cssLines[firstProperty] = insertExtraSpaces(currentLine, diff, alignColon);
                 }
 
                 firstProperty++;

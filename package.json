@@ -74,6 +74,12 @@
                     "type": "number",
                     "default": 0,
                     "description": "Whether formate adds more spaces."
+                },
+                "formate.includeRootFolders": {
+                    "scope": "resource",
+                    "type": "array",
+                    "default": [],
+                    "description": "Specify which folders need formate."
                 }
             }
         }
