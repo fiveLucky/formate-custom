@@ -1,25 +1,25 @@
 {
-    "name": "formate",
-    "displayName": "formate: CSS/LESS/SCSS formatter",
-    "publisher": "MikeBovenlander",
+    "name": "formate-custom",
+    "displayName": "formate-custom: CSS/LESS/SCSS formatter",
+    "publisher": "xuwenjie",
     "author": {
-        "name": "Mike Bovenlander"
+        "name": "xuwenjie"
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/mblander/formate"
+        "url": "https://github.com/fiveLucky/formate-custom"
     },
     "bugs": {
-        "url": "https://github.com/mblander/formate/issues"
+        "url": "https://github.com/fiveLucky/formate-custom/issues"
     },
-    "homepage": "https://github.com/mblander/formate",
+    "homepage": "https://github.com/fiveLucky/formate-custom",
     "icon": "images/formateicon.PNG",
     "galleryBanner": {
         "color": "#333",
         "theme": "dark"
     },
     "description": "Formate is an CSS/LESS/SCSS format extension to format properties and align property values to improve readability.",
-    "version": "1.1.6",
+    "version": "1.0.1",
     "engines": {
         "vscode": "^1.32.0"
     },
@@ -28,6 +28,7 @@
     ],
     "keywords": [
         "formate",
+        "formate-custom",
         "css",
         "sass",
         "scss",
