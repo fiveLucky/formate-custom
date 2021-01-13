@@ -19,7 +19,7 @@
         "theme": "dark"
     },
     "description": "Formate is an CSS/LESS/SCSS format extension to format properties and align property values to improve readability.",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "engines": {
         "vscode": "^1.32.0"
     },
@@ -50,39 +50,39 @@
     "contributes": {
         "type": "object",
         "configuration": {
-            "title": "Formate",
+            "title": "FormateCustom",
             "properties": {
-                "formate.enable": {
+                "formateCustom.enable": {
                     "scope": "resource",
                     "type": "boolean",
                     "default": true,
                     "description": "Controls whether formate is enabled or not."
                 },
-                "formate.verticalAlignProperties": {
+                "formateCustom.verticalAlignProperties": {
                     "scope": "resource",
                     "type": "boolean",
                     "default": true,
                     "description": "Vertical align properties on colon per selector."
                 },
-                "formate.alignColon": {
+                "formateCustom.alignColon": {
                     "scope": "resource",
                     "type": "boolean",
                     "default": true,
                     "description": "Whether Formate should align on the colon or the CSS property value."
                 },
-                "formate.additionalSpaces": {
+                "formateCustom.additionalSpaces": {
                     "scope": "resource",
                     "type": "number",
                     "default": 0,
                     "description": "Whether formate adds more spaces."
                 },
-                "formate.includeRootFolders": {
+                "formateCustom.includeRootFolders": {
                     "scope": "resource",
                     "type": "array",
                     "default": [],
                     "description": "Specify which folders need formate."
                 },
-                "formate.withGroup": {
+                "formateCustom.withGroup": {
                     "scope": "resource",
                     "type": "boolean",
                     "default": false,

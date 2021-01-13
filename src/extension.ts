@@ -4,7 +4,7 @@ import * as vscode from 'vscode';
 import jsbeautify = require('js-beautify');
 
 export function format(document: vscode.TextDocument, range: vscode.Range | null, defaultOptions: vscode.FormattingOptions) {
-    const settings = vscode.workspace.getConfiguration('formate');
+    const settings = vscode.workspace.getConfiguration('formateCustom');
     const enable = settings.get('enable', true);
     const withGroup = settings.get('withGroup', false);
     const currentRootName = vscode.workspace.name;
