@@ -2,7 +2,7 @@
  * @Author: xuwenjie
  * @Date: 2021-01-13 16:46:45
  * @LastEditors: xuwenjie
- * @LastEditTime: 2021-01-13 18:11:03
+ * @LastEditTime: 2021-03-19 11:02:17
  * @Description:  
  * @FilePath: /formate-custom/README.md
 -->
@@ -41,6 +41,7 @@ On Mac:
 
 | Version | Notes |
 |:--------|:------|
+| 1.0.4   | 去掉逗号折行逻辑
 | 1.0.3   | update README.
 | 1.0.2   | update configuration field.
 | 1.0.1   | init
