@@ -98,7 +98,11 @@ export function isProperty(line: string): boolean {
  * @returns {string}
  */
 export function verticalAlign(css: string, additionalSpaces: number = 0, alignColon: boolean, withGroup: boolean): string {
-    const cssLines = css.split('\n');
+    const reg = /(,\s*).*/
+    const str = css.replace(reg, ($1, $2) => {
+        return $1.replace($2, ', ')
+    })
+    const cssLines = str.split('\n');
     let firstProperty: number = -1;
     let lastProperty: number = -1;
     let commentBlockEntered = false;
@@ -143,7 +147,7 @@ export function verticalAlign(css: string, additionalSpaces: number = 0, alignCo
                 const colonIndex = currentLine.indexOf(':');
 
                 if (colonIndex < furthestColon && !isCommentLine(currentLine) && isProperty(currentLine)) {
-                    let diff = furthestColon - colonIndex;
+                    let diff = furthestColon - colonIndex - 1;
                     cssLines[firstProperty] = insertExtraSpaces(currentLine, diff, alignColon);
                 }
 
