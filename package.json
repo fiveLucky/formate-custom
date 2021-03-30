@@ -19,7 +19,7 @@
         "theme": "dark"
     },
     "description": "Formate is an CSS/LESS/SCSS format extension to format properties and align property values to improve readability.",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "engines": {
         "vscode": "^1.32.0"
     },
