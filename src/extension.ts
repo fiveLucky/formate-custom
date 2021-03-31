@@ -99,7 +99,7 @@ export function isProperty(line: string): boolean {
  */
 export function verticalAlign(css: string, additionalSpaces: number = 0, alignColon: boolean, withGroup: boolean): string {
     // 修复 , 折行问题
-    const str = css.replace(/(,\n+).*/g, ($1, $2) => {
+    const str = css.replace(/(,\n+\x20*)/g, ($1, $2) => {
         return $1.replace($2, ', ')
     })
     const cssLines = str.split('\n');
